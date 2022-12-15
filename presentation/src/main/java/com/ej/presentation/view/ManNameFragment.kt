@@ -9,8 +9,9 @@ import androidx.navigation.fragment.findNavController
 import com.ej.presentation.R
 import com.ej.presentation.base.BaseFragment
 import com.ej.presentation.databinding.FragmentManNameBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ManNameFragment : BaseFragment<FragmentManNameBinding>(R.layout.fragment_man_name) {
     override fun init() {
         binding.fragment = this

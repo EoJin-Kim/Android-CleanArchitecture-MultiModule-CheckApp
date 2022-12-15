@@ -10,8 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.ej.presentation.R
 import com.ej.presentation.base.BaseFragment
 import com.ej.presentation.databinding.FragmentResultBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_result) {
 
     override fun init() {

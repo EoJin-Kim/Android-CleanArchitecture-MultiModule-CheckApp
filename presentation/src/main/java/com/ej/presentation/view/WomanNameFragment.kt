@@ -9,9 +9,10 @@ import androidx.navigation.fragment.findNavController
 import com.ej.presentation.R
 import com.ej.presentation.base.BaseFragment
 import com.ej.presentation.databinding.FragmentWomanNameBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
-
+@AndroidEntryPoint
 class WomanNameFragment : BaseFragment<FragmentWomanNameBinding>(R.layout.fragment_woman_name) {
     override fun init() {
         binding.fragment = this
