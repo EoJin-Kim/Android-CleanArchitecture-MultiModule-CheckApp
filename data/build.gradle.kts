@@ -2,7 +2,8 @@ plugins {
     id ("com.android.library")
     id ("org.jetbrains.kotlin.android")
     id ("kotlin-kapt")
-    id ("dagger.hilt.android.plugin")
+//    id ("dagger.hilt.android.plugin")
+    id("com.google.dagger.hilt.android")
 //    id ("com.google.gms.google-services")
 }
 
@@ -55,10 +56,10 @@ dependencies {
 
     //coroutines
     implementation (Coroutines.COROUTINES)
+    implementation (Coroutines.COROUTINES_PLAY_SERVICES)
 
     // dager hilt
     implementation (DaggerHilt.DAGGER_HILT)
     kapt (DaggerHilt.DAGGER_HILT_COMPILER)
-    implementation (DaggerHilt.DAGGER_HILT_VIEW_MODEL)
     kapt (DaggerHilt.DAGGER_HILT_ANDROIDX_COMPILER)
 }
