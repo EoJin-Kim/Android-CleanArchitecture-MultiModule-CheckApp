@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="fragment"
+            type="com.ej.presentation.view.ResultFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,6 +59,8 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="메인으로"
+
+            android:onClick="@{fragment::backMainBtnClick}"
             android:textColor="@color/white"
             android:textSize="17sp"
             android:textStyle="bold"
