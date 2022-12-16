@@ -5,6 +5,8 @@ import com.ej.data.repository.remote.datasource.MainDataSource
 import com.ej.domain.model.DomainLoveResponse
 import com.ej.domain.repository.MainRepository
 import com.ej.domain.utils.RemoteErrorEmitter
+import com.google.android.gms.tasks.Task
+import com.google.firebase.database.DataSnapshot
 import javax.inject.Inject
 
 class MainRepositoryImpl @Inject constructor(
@@ -19,5 +21,13 @@ class MainRepositoryImpl @Inject constructor(
         wName: String
     ): DomainLoveResponse? {
         return MainMapper.loveMapper(mainDataSource.checkLoveCalculator(remoteErrorEmitter,host, key, mName, wName))
+    }
+
+    override fun getStatistics(): Task<DataSnapshot> {
+        return mainDataSource.getStatistics()
+    }
+
+    override fun setStatistics(plusValue: Int): Task<Void> {
+        return mainDataSource.setStatistics(plusValue)
     }
 }

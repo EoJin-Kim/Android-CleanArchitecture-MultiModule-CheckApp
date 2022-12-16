@@ -28,8 +28,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_spl
             .addOnFailureListener{
                 shortShowToast("오류가 발생했습니다. 오류코드 - ${it.message}")
             }
-
-
     }
+
 
 }

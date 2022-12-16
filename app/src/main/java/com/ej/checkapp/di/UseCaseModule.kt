@@ -4,6 +4,8 @@ import com.ej.domain.repository.MainRepository
 import com.ej.domain.repository.SplashRepository
 import com.ej.domain.usecase.CheckAppVersionUseCase
 import com.ej.domain.usecase.CheckLoveCalcuratorUseCase
+import com.ej.domain.usecase.GetStatisticsUseCase
+import com.ej.domain.usecase.SetStatisticsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,5 +26,17 @@ class UseCaseModule {
     @Singleton
     fun provideCheckAppVersionUseCase(repository: SplashRepository): CheckAppVersionUseCase {
         return CheckAppVersionUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetStatisticsUseCase(repository: MainRepository): GetStatisticsUseCase {
+        return GetStatisticsUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSetStatisticsUseCase(repository: MainRepository): SetStatisticsUseCase {
+        return SetStatisticsUseCase(repository)
     }
 }
