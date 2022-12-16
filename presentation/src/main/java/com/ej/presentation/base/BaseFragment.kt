@@ -36,4 +36,6 @@ abstract class BaseFragment<B : ViewDataBinding>(@LayoutRes val layoutId: Int) :
 
     protected fun longShowToast(msg: String) =
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+
+
 }

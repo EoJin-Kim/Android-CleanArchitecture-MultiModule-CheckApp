@@ -1,7 +1,7 @@
 package com.ej.checkapp.di
 
-import com.pss.check_percentage.utils.Utils.BASE_URL
-import com.pss.data.remote.api.LoveCalculatorApi
+import com.ej.checkapp.utils.Utils.BASE_URL
+import com.ej.data.remote.api.LoveCalculatorApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
