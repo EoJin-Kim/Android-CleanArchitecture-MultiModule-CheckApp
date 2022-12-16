@@ -3,6 +3,7 @@ plugins {
     id ("org.jetbrains.kotlin.android")
     id ("kotlin-kapt")
     id ("dagger.hilt.android.plugin")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -49,6 +50,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+//    implementation("com.google.firebase:firebase-database:19.2.1")
+//    implementation("com.google.firebase:firebase-firestore:21.4.0")
     testImplementation (TestTool.JUNIT)
     androidTestImplementation (TestTool.ANDROID_X_JUNIT)
     androidTestImplementation (TestTool.ANDROID_X_ESPRESSO)
@@ -88,6 +91,7 @@ dependencies {
     implementation (NavComponent.NAVIGATION_COMPOSE)
 
     //datastore
+
     implementation (AndroidX.DATASTORE)
 
     implementation (Library.NOTIFICATION_BAR_CUSTOM)

@@ -34,4 +34,7 @@ android {
 dependencies {
     // dager hilt
     implementation (DaggerHilt.DAGGER_HILT_JAVAX)
+
+    implementation (Firebase.FIREBASE_DATABASE_KTX)
+    implementation (Firebase.FIREBASE_FIRESTORE_KTX)
 }

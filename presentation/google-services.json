@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "881243965926",
+    "firebase_url": "https://checkapp-91056-default-rtdb.firebaseio.com",
+    "project_id": "checkapp-91056",
+    "storage_bucket": "checkapp-91056.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881243965926:android:00db50a9469f58e24eae27",
+        "android_client_info": {
+          "package_name": "com.ej.presentation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881243965926-ombkc6jpjm9qmdjhsn833l37fgr0ocni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm8JHS_znplmtK-_JTeLTgs4fN_kquOJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881243965926-ombkc6jpjm9qmdjhsn833l37fgr0ocni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
