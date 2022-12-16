@@ -2,6 +2,7 @@ package com.ej.data.repository.remote.datasourceimpl
 
 import com.ej.data.remote.api.LoveCalculatorApi
 import com.ej.data.remote.model.DataLoveResponse
+import com.ej.data.remote.model.DataScore
 import com.ej.data.repository.remote.datasource.MainDataSource
 import com.ej.data.utils.base.BaseDataSource
 import com.ej.domain.utils.RemoteErrorEmitter
@@ -9,6 +10,8 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
 import javax.inject.Inject
 
 class MainDataSourceImpl @Inject constructor(
@@ -36,5 +39,13 @@ class MainDataSourceImpl @Inject constructor(
 
     override fun setStatistics(plusValue : Int): Task<Void> {
         return firebaseDatabase.reference.child("statistics").setValue(plusValue)
+    }
+
+    override fun getScore(): Task<QuerySnapshot> {
+        return firestore.collection("score").orderBy("data",Query.Direction.DESCENDING).get()
+    }
+
+    override fun setScore(score: DataScore): Task<Void> {
+        return firestore.collection("score").document().set(score)
     }
 }

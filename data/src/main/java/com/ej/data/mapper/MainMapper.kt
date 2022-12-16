@@ -1,7 +1,9 @@
 package com.ej.data.mapper
 
 import com.ej.data.remote.model.DataLoveResponse
+import com.ej.data.remote.model.DataScore
 import com.ej.domain.model.DomainLoveResponse
+import com.ej.domain.model.DomainScore
 
 object MainMapper {
     fun loveMapper(
@@ -18,6 +20,16 @@ object MainMapper {
         else {
             return dataResponse
         }
+    }
+    fun scoreMapper(
+        domainScore: DomainScore
+    ) : DataScore{
+        return DataScore(
+            man =  domainScore.man,
+            woman = domainScore.woman,
+            percentage = domainScore.percentage,
+            date = domainScore.date
+        )
     }
 
 }
