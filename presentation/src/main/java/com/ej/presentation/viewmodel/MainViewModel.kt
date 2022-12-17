@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ej.domain.model.DomainLoveResponse
-import com.ej.domain.usecase.CheckLoveCalcuratorUseCase
-import com.ej.domain.usecase.GetStatisticsUseCase
-import com.ej.domain.usecase.SetStatisticsUseCase
+import com.ej.domain.model.DomainScore
+import com.ej.domain.usecase.*
 import com.ej.domain.utils.ErrorType
 import com.ej.domain.utils.RemoteErrorEmitter
 import com.ej.domain.utils.ScreenState
@@ -20,6 +19,8 @@ class MainViewModel @Inject constructor(
     private val checkLoveCalcuratorUseCase: CheckLoveCalcuratorUseCase,
     private val setStatisticsUseCase: SetStatisticsUseCase,
     private val getStatisticsUseCase: GetStatisticsUseCase,
+    private val setScoreUseCase: SetScoreUseCase,
+    private val getScoreUseCase: GetScoreUseCase,
 ) : ViewModel(), RemoteErrorEmitter {
 
     private val _apiCallEvent = SingleLiveEvent<ScreenState>()
@@ -30,6 +31,10 @@ class MainViewModel @Inject constructor(
     val getStatisticsEvent : LiveData<Int>
         get() = _getStatisticsEvent
 
+    private val _getScoreEvent = SingleLiveEvent<Int>()
+    val getScoreEvent : LiveData<Int>
+        get() = _getScoreEvent
+
 
 
     var apiCallResult = DomainLoveResponse("","",0,"")
@@ -37,6 +42,8 @@ class MainViewModel @Inject constructor(
     var apiErrorMessage = "none"
     var manNameResult = "man"
     var womanNameResult = "woman"
+
+    val scoreList = arrayListOf<DomainScore>()
 
     fun checkLoveCalculator(
         host: String,
@@ -64,6 +71,21 @@ class MainViewModel @Inject constructor(
         .addOnSuccessListener {
             _getStatisticsEvent.postValue(it.value.toString().toInt())
         }
+
+    fun getScore() = getScoreUseCase.excute()
+        .addOnSuccessListener { snapshot->
+            scoreList.clear()
+            for(item in snapshot){
+                item.toObject(DomainScore::class.java).let {
+                    scoreList.add(it!!)
+                }
+            }
+            _getScoreEvent.call()
+        }
+
+    fun setScore(man : String, woman:String,percentage:Int,date : String){
+        setScoreUseCase.excute(DomainScore(man,woman,percentage,date))
+    }
 
 
     override fun onError(msg: String) {

@@ -42,7 +42,7 @@ class MainDataSourceImpl @Inject constructor(
     }
 
     override fun getScore(): Task<QuerySnapshot> {
-        return firestore.collection("score").orderBy("data",Query.Direction.DESCENDING).get()
+        return firestore.collection("score").orderBy("date",Query.Direction.DESCENDING).get()
     }
 
     override fun setScore(score: DataScore): Task<Void> {

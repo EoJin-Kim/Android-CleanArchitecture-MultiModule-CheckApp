@@ -8,6 +8,8 @@ import com.ej.presentation.base.BaseFragment
 import com.ej.presentation.databinding.FragmentResultBinding
 import com.ej.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_result) {
@@ -16,6 +18,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_res
     override fun init() {
         binding.fragment = this
         initResult()
+        saveScore()
     }
 
     private fun initResult() {
@@ -34,6 +37,14 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_res
             else -> setLoveMsgTxt("알수없는 힘")
         }
     }
+
+    private fun saveScore() = with(mainViewModel.apiCallResult){
+        mainViewModel.setScore(this.fname,this.sname,this.percentage, nowTime())
+    }
+
+    private fun nowTime() : String = SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분", Locale("ko","KR")).format(
+        Date(System.currentTimeMillis())
+    )
 
     private fun saveStatistics() {
         mainViewModel.getStatistics()
