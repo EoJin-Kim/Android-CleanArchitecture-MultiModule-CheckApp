@@ -14,9 +14,9 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SplashActivity : BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
-    private val splashViewModel by viewModels<SplashViewModel>()
-    private val appVersion = "1.0.0"
 
+    private val appVersion = "1.0.0"
+    private val splashViewModel by viewModels<SplashViewModel>()
     override fun init() {
         CustomBar.setTransparentBar(this)
         splashViewModel.checkAppVersion()
